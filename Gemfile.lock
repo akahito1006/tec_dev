@@ -164,7 +164,6 @@ GEM
     minitest (5.14.4)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
-    mysql2 (0.5.3)
     netrc (0.11.0)
     nio4r (2.5.7)
     nokogiri (1.11.3)
@@ -354,7 +353,6 @@ DEPENDENCIES
   jquery-rails
   kaminari
   listen (~> 3.0.5)
-  mysql2
   pry-byebug
   puma (~> 3.0)
   rails (~> 5.2.5)

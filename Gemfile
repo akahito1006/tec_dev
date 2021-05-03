@@ -48,7 +48,6 @@ group :development do
 end
 
 group :production do
-  gem 'mysql2'
   gem 'rails-i18n'
 end
 
