@@ -35,14 +35,24 @@
         <%= f.text_area :content, rows: 15, placeholder: "記事の本文。改行できます。", class:"col-md-8 form-control" %>
       </div>
     </div>
+    
+  <!--form_with model: @article do |f|-->
     <div class="row mb-3">
       <div class="col-md-2">
         <h5>登録済みの画像</h5>
       </div>
       <div class="col">
-        <%= f.check_box 'freezeflag', {checked: true}, true, false %>
+        
+        <% if @article.article_images.present? %>
+          <% @article.article_images.each do |img| %>
+            <%= attachment_image_tag img, :image, class:"img-thumbnail", width:"300" %>
+            <%= f.check_box :image, {checked: true}, true, false %>
+          <% end %>
+        <% end %>
+        
       </div>
     </div>
+    
     <div class="row mb-3">
       <div class="col-md-2">
         <h5>画像アップロード（複数選択可）</h5>

@@ -34,6 +34,7 @@ class Public::ArticlesController < ApplicationController
   def edit
     begin
       @article = Article.find(params[:id])
+      @article_images = ArticleImage.where(article_id: params[:id])
     rescue
       redirect_to "/", notice: "エラーが発生しました"
     end
@@ -42,6 +43,9 @@ class Public::ArticlesController < ApplicationController
   def update
     begin
       @article = Article.find(params[:id])
+      @article_images = ArticleImage.where(article_id: params[:id])
+      
+      @article.article_images = @article_images
     rescue
       redirect_to "/", notice: "エラーが発生しました"
     end
