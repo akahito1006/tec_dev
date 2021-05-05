@@ -42,11 +42,10 @@
         <h5>登録済みの画像</h5>
       </div>
       <div class="col">
-        
+        <h5>アップロード済みの画像</h5>
         <% if @article.article_images.present? %>
           <% @article.article_images.each do |img| %>
             <%= attachment_image_tag img, :image, class:"img-thumbnail", width:"300" %>
-            <%= f.check_box :image, {checked: true}, true, false %>
           <% end %>
         <% end %>
         
