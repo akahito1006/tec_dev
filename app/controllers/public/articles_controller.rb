@@ -12,8 +12,12 @@ class Public::ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
-    @comment = Comment.new
+    begin
+      @article = Article.find(params[:id])
+    rescue
+      redirect_to "/", notice: "エラーが発生しました"
+    end
+      @comment = Comment.new
   end
 
   def new
@@ -43,13 +47,6 @@ class Public::ArticlesController < ApplicationController
   def update
     begin
       @article = Article.find(params[:id])
-      
-      images = @article.article_images
-      images += params[:article_images_images]
-      @article.article_images = images
-      p "-----------------------"
-      p @article.article_images
-
     rescue
       redirect_to "/", notice: "エラーが発生しました"
     end
