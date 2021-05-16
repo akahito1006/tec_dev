@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     resources :articles,  only: [:index, :show, :new, :create, :edit, :update, :destroy] do
       resource  :likes,     only: [:create, :destroy]
       resources :comments,  only: [:create, :destroy]
+      resources :article_images,  only: [:destroy]
     end
     get '/user/unsubscribe' => 'users#unsubscribe'
     get '/search' => 'searches#search'

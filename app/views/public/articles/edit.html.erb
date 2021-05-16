@@ -36,8 +36,24 @@
       </div>
     </div>
     
-    <%= render partial:"public/article_images/images", locals: {article: @article, f: f} %>
+    <div class="row mb-3">
+      <div class="col-md-2">
+        <h5>登録済みの画像</h5>
+      </div>
+      <div class="col" id="article_images">
+        <%= render partial:"public/article_images/images", locals: {article: @article, f: f} %>
+      </div>
+    </div>
     
+    
+    <div class="row mb-3">
+      <div class="col-md-2">
+        <h5>画像アップロード（複数選択可）</h5>
+      </div>
+      <div class="col">
+        <%= f.attachment_field :article_images_images, multiple: true %>
+      </div>
+    </div>
     <div class="row mb-3">
       <div class="col-md-8 mx-auto">
         <%= f.submit "編集を確定する", class:"col-md-3 btn btn-success" %>
